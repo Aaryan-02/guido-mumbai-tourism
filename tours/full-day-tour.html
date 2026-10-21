@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Day Tour in Mumbai</title>
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../css/style.css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("wAZlDUhVYiuJd1Qc4");
+        })();
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            margin-top: 60px;
+        }
+
+        .tour-image {
+            width: 80%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        /* .tour-image:hover {
+            transform: scale(1.05);
+        } */
+
+        .tour-info {
+            padding: 50px 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .tour-info h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .tour-info p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .tour-info .highlight {
+            font-weight: 700;
+            color: #7AB730;
+        }
+
+        .tour-info .bton {
+            /* margin-top: 30px; */
+            background-color: #7AB730;
+            color: white;
+            padding: 14px 30px;
+            font-size: 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .tour-info .bton:hover {
+            background-color: #669928;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 60px;
+            left: 80px;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #5B9C1F, #a0d65e);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+
+        .tour-details {
+            text-align: left;
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 35px;
+        }
+
+        .tour-details ul {
+            padding-left: 0px;
+            list-style-type: none;
+        }
+
+        .tour-details li {
+            margin-bottom: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .tour-details i {
+            color: #7AB730;
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 767px) {
+            .tour-info h1 {
+                font-size: 2.2rem;
+            }
+
+            .tour-info p {
+                font-size: 1.1rem;
+            }
+
+            .tour-details ul {
+                padding-left: 15px;
+            }
+
+            .back-btn {
+                left: 20px;
+                font-size: 0.7rem;
+            }
+            
+            .tour-info .bton {
+                padding: 9px 10px;
+                font-size: 0.85rem;
+            }
+        }
+
+        .validation-message {
+            font-size: 0.7rem;
+            color: red;
+            margin-top: -10px;
+        }
+
+        .invalid {
+            border-color: red;
+            animation: shake 0.3s;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back Button -->
+    <a href="../package.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+
+    <!-- Full Day Tour Info Page -->
+    <div class="container">
+        <div class="tour-info">
+            <h1>Full Day Tour in Mumbai</h1>
+            <img src="../img/package-lg-4.jpg" alt="Full Day Tour Image" class="tour-image">
+            <p>
+                Experience the best of Mumbai on our <span class="highlight">Full Day Tour</span>, designed for those
+                who want to explore the city’s diverse attractions in one action-packed day.
+            </p>
+            <p>
+                The tour takes you through historic monuments, cultural sites, bustling markets, and hidden gems of
+                Mumbai, including Elephanta Caves, Chhatrapati Shivaji Maharaj Terminus, and more.
+            </p>
+            <p>
+                Enjoy a complete Mumbai experience, enriched with stories and history from our expert guides.
+            </p>
+
+            <!-- Additional Tour Information -->
+            <div class="tour-details">
+                <h3>Tour Highlights</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Visit Elephanta Caves</li>
+                    <li><i class="fas fa-briefcase"></i> Explore Chhatrapati Shivaji Maharaj Terminus</li>
+                    <li><i class="fas fa-users"></i> Walk through Crawford Market</li>
+                    <li><i class="fas fa-info-circle"></i> Discover hidden gems of the city</li>
+                </ul>
+            </div>
+
+            <a href="#" class="bton" data-toggle="modal" data-target="#bookNowModal5">Book Your Tour Now</a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="bookNowModal5" tabindex="-1" aria-labelledby="bookNowModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary d-flex align-items-center justify-content-between">
+                            <h3 class="modal-title text-white mb-0" id="bookNowModalLabel">Book Your Tour Now</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                onclick="clearFormFields()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body p-4">
+                            <form id="tourBookingForm">
+                                <div class="form-group">
+                                    <input type="text" id="name" class="form-control p-4" placeholder="Your name"
+                                        required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" class="form-control p-4" placeholder="Your email"
+                                        required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" class="form-control p-4"
+                                        placeholder="Your phone number" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <div class="date input-group" id="date1" data-target-input="nearest">
+                                        <input type="text" id="departureDate"
+                                            class="form-control p-4 datetimepicker-input" placeholder="Departure Date"
+                                            data-target="#date1" data-toggle="datetimepicker" />
+                                        <div class="input-group-append" data-target="#date1"
+                                            data-toggle="datetimepicker">
+                                            <span class="input-group-text bg-white border-left-0">
+                                                <i class="fa fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="date input-group" id="date2" data-target-input="nearest">
+                                        <input type="text" id="returnDate" class="form-control p-4 datetimepicker-input"
+                                            placeholder="Return Date" data-target="#date2"
+                                            data-toggle="datetimepicker" />
+                                        <div class="input-group-append" data-target="#date2"
+                                            data-toggle="datetimepicker">
+                                            <span class="input-group-text bg-white border-left-0">
+                                                <i class="fa fa-calendar-alt"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                onclick="clearFormFields()">Close</button>
+                            <button type="submit" class="btn btn-primary" onclick="sendEmail()">Submit</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function clearFormFields() {
+            // Clear form fields
+            document.getElementById('tourBookingForm').reset();
+
+            // Optionally remove validation messages
+            document.querySelectorAll('.validation-message').forEach((msg) => msg.remove());
+
+            // Remove any added 'invalid' classes
+            document.querySelectorAll('.form-control').forEach((input) => input.classList.remove('invalid'));
+        }
+
+        function sendEmail() {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const departureDateInput = document.getElementById('departureDate');
+            const returnDateInput = document.getElementById('returnDate');
+
+            const nameValidationMessage = document.createElement('span');
+            const emailValidationMessage = document.createElement('span');
+            const phoneValidationMessage = document.createElement('span');
+            const departureValidationMessage = document.createElement('span');
+            const returnValidationMessage = document.createElement('span');
+
+            nameValidationMessage.classList.add('validation-message');
+            emailValidationMessage.classList.add('validation-message');
+            phoneValidationMessage.classList.add('validation-message');
+            departureValidationMessage.classList.add('validation-message');
+            returnValidationMessage.classList.add('validation-message');
+
+            let valid = true;
+
+            // Clear existing messages
+            document.querySelectorAll('.validation-message').forEach(msg => msg.remove());
+
+            // Validate name
+            if (!nameInput.value.trim()) {
+                valid = false;
+                nameInput.classList.add('invalid');
+                nameValidationMessage.textContent = 'Name is required.';
+                nameInput.parentNode.appendChild(nameValidationMessage);
+            } else {
+                nameInput.classList.remove('invalid');
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailInput.value.trim()) {
+                valid = false;
+                emailInput.classList.add('invalid');
+                emailValidationMessage.textContent = 'Email is required.';
+                emailInput.parentNode.appendChild(emailValidationMessage);
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                valid = false;
+                emailInput.classList.add('invalid');
+                emailValidationMessage.textContent = 'Please enter a valid email address.';
+                emailInput.parentNode.appendChild(emailValidationMessage);
+            } else {
+                emailInput.classList.remove('invalid');
+            }
+
+            // Validate phone
+            if (!phoneInput.value.trim()) {
+                valid = false;
+                phoneInput.classList.add('invalid');
+                phoneValidationMessage.textContent = 'Phone number is required.';
+                phoneInput.parentNode.appendChild(phoneValidationMessage);
+            } else {
+                phoneInput.classList.remove('invalid');
+            }
+
+            // Validate departure date
+            const departureGroup = departureDateInput.closest('.form-group');
+            if (!departureDateInput.value.trim()) {
+                valid = false;
+                departureDateInput.classList.add('invalid');
+                departureValidationMessage.textContent = 'Departure date is required.';
+                departureGroup.appendChild(departureValidationMessage);
+            } else if (isNaN(new Date(departureDateInput.value))) {
+                valid = false;
+                departureDateInput.classList.add('invalid');
+                departureValidationMessage.textContent = 'Please enter a valid departure date.';
+                departureGroup.appendChild(departureValidationMessage);
+            } else {
+                departureDateInput.classList.remove('invalid');
+            }
+
+            // Validate return date
+            const returnGroup = returnDateInput.closest('.form-group');
+            if (!returnDateInput.value.trim()) {
+                valid = false;
+                returnDateInput.classList.add('invalid');
+                returnValidationMessage.textContent = 'Return date is required.';
+                returnGroup.appendChild(returnValidationMessage);
+            } else if (isNaN(new Date(returnDateInput.value))) {
+                valid = false;
+                returnDateInput.classList.add('invalid');
+                returnValidationMessage.textContent = 'Please enter a valid return date.';
+                returnGroup.appendChild(returnValidationMessage);
+            } else if (new Date(returnDateInput.value) <= new Date(departureDateInput.value)) {
+                valid = false;
+                returnDateInput.classList.add('invalid');
+                returnValidationMessage.textContent = 'Return date must be after the departure date.';
+                returnGroup.appendChild(returnValidationMessage);
+            } else {
+                returnDateInput.classList.remove('invalid');
+            }
+
+            if (!valid) return;
+
+            // Prepare the email parameters
+            const templateParams = {
+                name: nameInput.value,
+                email: emailInput.value,
+                phone: phoneInput.value,
+                departure_date: departureDateInput.value,
+                return_date: returnDateInput.value,
+            };
+
+            // Use EmailJS to send the email
+            emailjs.send('service_y28a9yj', 'template_lvmq6if', templateParams)
+                .then(function () {
+                    console.log('Email sent successfully!');
+                    $('#bookNowModal5').modal('hide'); // Close the modal
+                    clearFormFields();
+                })
+                .catch(function (error) {
+                    console.log('Failed to send email: ' + error.text);
+                });
+        }
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
